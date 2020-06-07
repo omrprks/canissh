@@ -7,5 +7,10 @@ Test if SSH is open to URL
 $ canissh google.com 22
 ```
 
+## Installation
+```sh
+$ make install
+```
+
 ## License
 [MIT](./LICENSE)
