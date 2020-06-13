@@ -1,10 +1,15 @@
 #!/usr/bin/env sh
 
-[[ -z $HOST ]] && read -p 'HOST? ' HOST
+HOST=${1}
+PORT=${2}
 
-INTERVAL=0.5
+[[ -z ${HOST} ]] && read -p 'HOST? ' HOST
+[[ -z ${PORT} ]] && read -p 'PORT? ' PORT
 
-while ! nc ${HOST} 22; do
-  echo "no";
+PORT=${PORT:-22}
+INTERVAL=${INTERVAL:-0.5}
+
+while ! nc ${HOST} ${PORT}; do
+  echo "Nope";
   sleep ${INTERVAL};
 done
